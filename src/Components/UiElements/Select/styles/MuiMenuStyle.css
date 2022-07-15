@@ -1,0 +1,23 @@
+[aria-labelledby*="open-select-label"].MuiMenu-list{
+    background-color: #1B1B1B;
+    padding: 4px 8px;
+    border-radius: 0;
+    border:1px solid #1B1B1B
+}
+
+[aria-labelledby*="open-select-label"] .MuiListItem-root{
+    background-color:rgba(146,143,143,45%);
+    color:#fff;
+    padding:4px 8px;
+    border-radius: 6px;
+    margin-bottom: 8px;
+}
+[aria-labelledby*="open-select-label"] .MuiListItem-root:hover{
+    background-color:rgba(146,143,143,60%);
+}
+[aria-labelledby*="open-select-label"] .MuiListItem-root.Mui-selected {
+    background-color: rgba(255,255,255,55%);
+}
+[aria-labelledby*="open-select-label"] .MuiListItem-root.Mui-selected:hover{
+    background-color: rgba(255,255,255,65%);
+}
