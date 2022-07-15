@@ -15,7 +15,7 @@ const TournamentInfoContainerInner: React.FC<TournamentInfoContainerProps> = ({
   const dispatch = useAppDispatch();
   React.useEffect(() => {
     dispatch(getTournamentByIdAsync(+tournamentId));
-  }, []);
+  }, [tournamentId]);
 
   return <TournamentInfoContent />;
 };

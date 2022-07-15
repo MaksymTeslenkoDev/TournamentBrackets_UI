@@ -1,5 +1,8 @@
 import { useAppDispatch } from "../../hooks";
+import { deleteTournamentAsync } from "../Tournament/tournamentAsyncReducers";
 import { setActive } from "./sidebarSlice";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const useSidebarStore = () => {
   const dispatch = useAppDispatch();
@@ -7,8 +10,16 @@ export const useSidebarStore = () => {
   const handleSetActive = (field: string, value: string | number) => {
     dispatch(setActive({ field, value }));
   };
-
-  return { handleSetActive } as {
-    handleSetActive: (field: string, value: string | number) => void;
+  const deleteTournament = (tournamentId: number) => {
+    dispatch(deleteTournamentAsync({ tournamentId }))
+      .unwrap()
+      .then(() => {
+        toast.success("Tournament was successfully deleted");
+      })
+      .catch((err) => {
+        toast.error(err);
+      });
   };
+
+  return { handleSetActive, deleteTournament };
 };

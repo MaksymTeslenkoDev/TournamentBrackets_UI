@@ -7,6 +7,7 @@ import {
   faPlusCircle,
   faUserNinja,
   faTrophy,
+  faTrash,
 } from "@fortawesome/free-solid-svg-icons";
 import { useBracketSettingsSidebarStyles } from "./styles/useBracketSettingsSidebarStyles";
 import { useAppSelector } from "../../../hooks";
@@ -15,7 +16,12 @@ import { useTournamentsAccordion } from "./TournamentsAccordion";
 import clsx from "clsx";
 import { useHistory } from "react-router-dom";
 
-export const TournamentsSelect: React.FC = () => {
+interface Props {
+  handleDeleteTournament: (id: number) => (e: React.MouseEvent) => void;
+}
+export const TournamentsSelect: React.FC<Props> = ({
+  handleDeleteTournament,
+}) => {
   const classes = useBracketSettingsSidebarStyles();
   const history = useHistory();
 
@@ -36,6 +42,9 @@ export const TournamentsSelect: React.FC = () => {
   };
 
   const renderActiveTournamentRow = () => {
+    const tournament = tournamentsOptions.find(
+      (i) => i.value === +activeTournament
+    );
     return (
       <Box className={clsx(classes.tournamentRow, "active")}>
         <Box>
@@ -47,9 +56,14 @@ export const TournamentsSelect: React.FC = () => {
             }
           </Typography>
         </Box>
-        {tournamentsOptions.find((i) => i.value === +activeTournament)?.role !==
-        UserRoles.player ? (
-          <FontAwesomeIcon icon={faUserNinja} />
+        {tournament && tournament?.role !== UserRoles.player ? (
+          <Box>
+            <FontAwesomeIcon
+              icon={faTrash}
+              onClick={handleDeleteTournament(+tournament.id)}
+            />
+            <FontAwesomeIcon icon={faUserNinja} />
+          </Box>
         ) : null}
       </Box>
     );
@@ -81,7 +95,7 @@ export const TournamentsSelect: React.FC = () => {
                 <Box
                   key={i.id}
                   className={clsx(classes.tournamentRow)}
-                  onClick={() => handleClickTournamentRow(+i.value)}
+                  onClick={(e) => handleClickTournamentRow(+i.value)}
                 >
                   <Box>
                     <FontAwesomeIcon icon={faTrophy} />
@@ -89,7 +103,13 @@ export const TournamentsSelect: React.FC = () => {
                   </Box>
 
                   {i.role !== UserRoles.player ? (
-                    <FontAwesomeIcon icon={faUserNinja} />
+                    <Box>
+                      <FontAwesomeIcon
+                        icon={faTrash}
+                        onClick={handleDeleteTournament(+i.id)}
+                      />
+                      <FontAwesomeIcon icon={faUserNinja} />
+                    </Box>
                   ) : null}
                 </Box>
               );

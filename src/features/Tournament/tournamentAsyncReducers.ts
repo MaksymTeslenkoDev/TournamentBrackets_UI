@@ -176,3 +176,26 @@ export const updateScoreAsync = createAsyncThunk<
     }
   }
 );
+
+export const deleteTournamentAsync = createAsyncThunk<
+  undefined,
+  { tournamentId: number },
+  { extra: ThunkExraArguments; rejectValue: string }
+>(
+  "@@tournament/deleteTournament",
+  async (params, { extra: { api }, rejectWithValue }) => {
+    try {
+      const { tournamentId } = params;
+      const { data } = await api.makePostRequest<undefined, undefined>(
+        `tournaments/delete/${tournamentId}`,
+        undefined
+      );
+      return data;
+    } catch (err) {
+      if (err instanceof Error) {
+        return rejectWithValue(err.message);
+      }
+      return rejectWithValue("Something bad was happened!");
+    }
+  }
+);

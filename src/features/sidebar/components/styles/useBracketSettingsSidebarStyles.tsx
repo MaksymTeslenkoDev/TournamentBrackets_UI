@@ -82,7 +82,9 @@ export const useBracketSettingsSidebarStyles = makeStyles((theme: Theme) => ({
     justifyContent: "space-between",
     padding: theme.spacing(0.25),
     textTransform: "capitalize",
-
+    "& svg:first-child": {
+      marginRight: theme.spacing(0.25),
+    },
     "&:hover": {
       backgroundColor: alpha(theme.palette.secondary.main, 0.3),
     },
@@ -90,6 +92,9 @@ export const useBracketSettingsSidebarStyles = makeStyles((theme: Theme) => ({
       padding: theme.spacing(0.5, 0.5, 0.5, 0.25),
       borderLeft: `${theme.spacing(0.25)} solid ${theme.palette.primary.light}`,
       backgroundColor: alpha(theme.palette.secondary.main, 0.3),
+      "& svg:first-child": {
+        marginRight: theme.spacing(0.5),
+      },
     },
     "& span": {
       lineHeight: theme.spacing(0.5),
