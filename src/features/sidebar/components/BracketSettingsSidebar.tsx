@@ -4,46 +4,18 @@ import { useBracketSettingsSidebarStyles } from "./styles/useBracketSettingsSide
 import { GameSelect } from "./SidebarGameSelect";
 import { TournamentsSelect } from "./TournamentsSelect";
 import { useAppDispatch, useAppSelector } from "../../../hooks";
-import {
-  getUserTournamentsAsync,
-  selectSidebar,
-  setActive,
-} from "../sidebarSlice";
-import { selectUser } from "../../User/userSlice";
-import { AuthStatus } from "../../User/types";
-import { useHistory, useParams } from "react-router-dom";
+import { getUserTournamentsAsync, selectSidebar } from "../sidebarSlice";
+import { useHistory } from "react-router-dom";
 import { useSidebarStore } from "../useSidebarStore";
+import { useSidebar } from "../useSidebar";
 
-interface URLParams {
-  game: string | undefined;
-  activeTournament: string | undefined;
-}
 export const BracketSettingsSidebar: React.FC = () => {
   const classes = useBracketSettingsSidebarStyles();
-  const { authStatus } = useAppSelector(selectUser);
   const { game } = useAppSelector(selectSidebar);
-  const params: URLParams = useParams();
   const dispatch = useAppDispatch();
   const { deleteTournament } = useSidebarStore();
   const history = useHistory();
-
-  React.useEffect(() => {
-    if (params.game) {
-      dispatch(setActive({ field: "game", value: params.game }));
-    }
-    dispatch(
-      setActive({
-        field: "activeTournament",
-        value: params.activeTournament || "",
-      })
-    );
-  }, [params]);
-
-  React.useEffect(() => {
-    if (authStatus === AuthStatus.Authorized) {
-      dispatch(getUserTournamentsAsync(game));
-    }
-  }, [authStatus, game, dispatch]);
+  const params = useSidebar();
 
   const handleDeleteTournament = (id: number) => (e: React.MouseEvent) => {
     e.stopPropagation();
