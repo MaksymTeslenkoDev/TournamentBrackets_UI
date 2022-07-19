@@ -3,32 +3,17 @@ import React from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import { SimpleButton } from "../../../Components/UiElements/Buttons/TBButton";
 import { useAddTournamentInitialModalClasses } from "./styles/useAddTournamentInitialModalStyles";
-import * as yup from "yup";
-import { yupResolver } from "@hookform/resolvers/yup";
+
 import { TBFormTextField } from "../../../Components/TextField";
 import { useModal } from "../../Modal/useModal";
 import { CreateTournamentBaseModal } from "./CreateTournamenBase";
-const schema = yup.object().shape({
-  url: yup
-    .string()
-    .matches(
-      /((https?):\/\/)?(www.)?[a-z0-9-]+(\.[a-z]{2,}){1,3}(#?\/?[a-zA-Z0-9#-]+)*\/?(\?[a-zA-Z0-9-_]+=[a-zA-Z0-9-%]+&?)?$/,
-      "Enter correct url!"
-    ),
-});
+import { useAddTournamentInitialForm } from "../hooks/useAddTournamentInitialForm";
 
 export const AddTournamentInitialModal: React.FC = () => {
   const classes = useAddTournamentInitialModalClasses();
-  const methods = useForm<{ url: string }>({
-    mode: "onBlur",
-    resolver: yupResolver(schema),
-  });
-  const handleSubmit = methods.handleSubmit((data) => {
-    console.log(data);
-  });
 
   const { setModalContent } = useModal();
-
+  const { methods, handleSubmit } = useAddTournamentInitialForm();
   const handleOpenModal = () => {
     setModalContent(<CreateTournamentBaseModal />);
   };

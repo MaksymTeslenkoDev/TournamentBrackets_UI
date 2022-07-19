@@ -3,7 +3,7 @@ import TournamentInfoContainer from "../features/Tournament/components/Tournamen
 import { Layout } from "../Layout/Layout";
 import { useLayoutStyles } from "./useLayoutStyles";
 
-interface TournamentInfoPageProps {
+export interface TournamentInfoPageProps {
   tournamentId: string;
   game: string;
 }

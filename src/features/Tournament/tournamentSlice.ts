@@ -38,6 +38,7 @@ const initialState: TournamentState = {
     accessType: TournamentAccessType.public,
     startAt: "",
     finishAt: "",
+    invite: "",
   },
   tournamentList: [],
   tournamentsListQueryState: {

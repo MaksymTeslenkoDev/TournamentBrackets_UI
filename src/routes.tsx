@@ -1,14 +1,14 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 import { Home } from "./Routes/HomePage";
-import { AppDispatch } from "./store";
 import { checkIsAuthAsync } from "./features/User/userSlice";
-import { useDispatch } from "react-redux";
 import { TournamentInfoPage } from "./Routes/TournamentInfoPage";
 import { TournamentsPage } from "./Routes/TournamentsPage";
+import { useAppDispatch } from "./hooks";
+import InvitedTournamentPageHOC from "./Routes/hoc/InvitedTournamentHOC";
 
 const Routes: React.FC = () => {
-  const dispatch = useDispatch<AppDispatch>();
+  const dispatch = useAppDispatch();
 
   React.useEffect(() => {
     dispatch(checkIsAuthAsync());
@@ -41,6 +41,17 @@ const Routes: React.FC = () => {
         exact
         render={() => {
           return <TournamentsPage />;
+        }}
+      />
+      <Route
+        path="/invite"
+        exact
+        render={(props) => {
+          const token = props.location.search.slice(
+            1,
+            props.location.search.length
+          );
+          return <InvitedTournamentPageHOC token={token} />;
         }}
       />
     </Switch>

@@ -54,6 +54,7 @@ export interface Tournament {
   accessType: TournamentAccessType;
   startAt: string;
   finishAt: string;
+  invite: string;
   //complete hole entity of Tournament later
 }
 
