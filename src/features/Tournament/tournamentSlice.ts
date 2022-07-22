@@ -4,6 +4,7 @@ import { loginAsync } from "../login/loginSlice";
 import { checkIsAuthAsync } from "../User/userSlice";
 import {
   createNewTournamentAsync,
+  deletePlayerAsync,
   getTournamentByIdAsync,
   getTournamentsListAsync,
   registerNewCompetitorsAsync,
@@ -39,6 +40,7 @@ const initialState: TournamentState = {
     startAt: "",
     finishAt: "",
     invite: "",
+    password: "",
   },
   tournamentList: [],
   tournamentsListQueryState: {
@@ -46,9 +48,9 @@ const initialState: TournamentState = {
     limit: 20,
     orderBy: "startAt",
     orderDirection: OrderDirection.asc,
-    game: "",
     accessType: TournamentAccessType.all,
     search: "",
+    game: "",
   },
   error: null,
   status: LoadStatus.idle,
@@ -97,6 +99,9 @@ export const tournamentSlice = createSlice({
     });
     builder.addCase(getTournamentsListAsync.fulfilled, (state, action) => {
       state.tournamentList = action.payload;
+    });
+    builder.addCase(deletePlayerAsync.fulfilled, (state, action) => {
+      state.tournament = action.payload;
     });
     builder.addMatcher(
       (action) => action.type.endsWith("/fulfilled"),

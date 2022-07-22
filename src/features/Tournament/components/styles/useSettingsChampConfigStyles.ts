@@ -32,4 +32,8 @@ export const useSettingsChampConfigStyles = makeStyles((theme: Theme) => ({
   roundRow: {
     marginBottom: theme.spacing(0.75),
   },
+  changePasswordSubmitButtonRow: {
+    marginTop: theme.spacing(1),
+    width: theme.spacing(3),
+  },
 }));

@@ -1,6 +1,9 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { SelectOption } from "../../Components/UiElements/Select/TBSelect";
-import { createNewTournamentAsync } from "../Tournament/tournamentAsyncReducers";
+import {
+  createNewTournamentAsync,
+  registerNewCompetitorsAsync,
+} from "../Tournament/tournamentAsyncReducers";
 import { RootState, ThunkExraArguments } from "../../store";
 import { gamesArray } from "../Tournament/types";
 
@@ -75,6 +78,9 @@ export const sidebarSlice = createSlice({
     });
     builder.addCase(getUserTournamentsAsync.fulfilled, (state, action) => {
       state.tournamentsOptions = action.payload;
+    });
+    builder.addCase(registerNewCompetitorsAsync.fulfilled, (state, action) => {
+      // state.activeTournament.push({id:action.payload.id,role});
     });
   },
 });

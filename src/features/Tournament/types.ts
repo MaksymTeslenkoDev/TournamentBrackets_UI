@@ -55,6 +55,7 @@ export interface Tournament {
   startAt: string;
   finishAt: string;
   invite: string;
+  password: string;
   //complete hole entity of Tournament later
 }
 

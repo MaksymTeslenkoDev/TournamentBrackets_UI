@@ -4,7 +4,6 @@ import { Tournament } from "../types";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { SettingChampFields } from "../components/SettingsChampConfig";
 import { useUpdateTournament } from "./useUpdateTournament";
-import React from "react";
 
 export const useTournamentDetailsForm = (tournament: Tournament) => {
   const schema = yup.object().shape({
@@ -12,6 +11,7 @@ export const useTournamentDetailsForm = (tournament: Tournament) => {
       .string()
       .typeError("Must be a string")
       .required("Tournament title can't be empty"),
+    password: yup.string().required("Field can't be empty"),
   });
 
   const methods = useForm<SettingChampFields>({
@@ -19,7 +19,7 @@ export const useTournamentDetailsForm = (tournament: Tournament) => {
     defaultValues: {
       title: tournament.title,
       accessType: tournament.accessType,
-      password: "",
+      password: tournament.password,
     },
     resolver: yupResolver(schema),
   });
@@ -28,9 +28,10 @@ export const useTournamentDetailsForm = (tournament: Tournament) => {
 
   const accessType = methods.watch("accessType");
 
-  React.useEffect(() => {
+  const handleSubmitChangePassword = methods.handleSubmit(async (data) => {
     handleChangeField("accessType");
-  }, [accessType]);
+    handleChangeField("password");
+  });
 
-  return { methods, handleChangeField, accessType };
+  return { methods, handleChangeField, accessType, handleSubmitChangePassword };
 };

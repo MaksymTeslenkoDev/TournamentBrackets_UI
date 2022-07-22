@@ -19,15 +19,17 @@ import { faCopy } from "@fortawesome/free-solid-svg-icons";
 import { useTournamentDetailsStyles } from "./styles/useTournamentDetailsStyles";
 import { useTournamentDetailsForm } from "../hooks/useTournamentDetailsForm";
 import { handleCopy } from "../../../Utility/handleClipboardCopy";
-
+import { SimpleButton } from "../../../Components/UiElements/Buttons/TBButton";
 export const TournamentDetailsContainer: React.FC = () => {
   const tournament = useAppSelector((state) => selectTournament(state));
   const classes = useTournamentDetailsStyles();
   const tournamentSettingClasses = useSettingsChampConfigStyles();
 
-  const { TBTournamentSettingsTextField } = useTournamentSettingsTextField();
+  const { TBTournamentSettingsTextField, TBTournamentSettingsPasswordField } =
+    useTournamentSettingsTextField();
   const [TBRadioGroup, TBRadio] = useTBRadioButton();
-  const { methods, handleChangeField, accessType } =
+
+  const { methods, handleChangeField, accessType, handleSubmitChangePassword } =
     useTournamentDetailsForm(tournament);
 
   const INVITE_LINK = `${window.location.origin}/invite?${tournament.invite}`;
@@ -35,14 +37,14 @@ export const TournamentDetailsContainer: React.FC = () => {
   const clickCopy = React.useCallback(() => {
     handleCopy(INVITE_LINK);
   }, []);
+
   return (
     <FormProvider {...methods}>
       <Box className={tournamentSettingClasses.root}>
         <Box className={tournamentSettingClasses.titleWrapper}>
           <TabTitleComponent title="Tournament Details" />
         </Box>
-
-        <form>
+        <form onSubmit={handleSubmitChangePassword}>
           <Box className={tournamentSettingClasses.block}>
             <Typography className={tournamentSettingClasses.blockTitle}>
               Tournament name
@@ -105,30 +107,31 @@ export const TournamentDetailsContainer: React.FC = () => {
             </FormControl>
           </Box>
           {accessType === TournamentAccessType.private && (
-            <>
-              <Box className={tournamentSettingClasses.block}>
-                <Typography className={tournamentSettingClasses.blockTitle}>
-                  Old Password
-                </Typography>
-                <TBTournamentSettingsTextField
-                  name="oldPassword"
-                  label=""
-                  className="TournamentsettingsTextField size-big"
+            <Box className={tournamentSettingClasses.block}>
+              <Typography className={tournamentSettingClasses.blockTitle}>
+                Password
+              </Typography>
+              <TBTournamentSettingsPasswordField
+                name="password"
+                label=""
+                className="TournamentDetailsPassword size-big"
+                color="primary"
+              />
+              <Box
+                className={
+                  tournamentSettingClasses.changePasswordSubmitButtonRow
+                }
+              >
+                <SimpleButton
                   color="primary"
-                />
+                  size="medium"
+                  variant="contained"
+                  type="submit"
+                >
+                  Submit
+                </SimpleButton>
               </Box>
-              <Box className={tournamentSettingClasses.block}>
-                <Typography className={tournamentSettingClasses.blockTitle}>
-                  New Password
-                </Typography>
-                <TBTournamentSettingsTextField
-                  name="newPassword"
-                  label=""
-                  className="TournamentsettingsTextField size-big"
-                  color="primary"
-                />
-              </Box>
-            </>
+            </Box>
           )}
         </form>
       </Box>

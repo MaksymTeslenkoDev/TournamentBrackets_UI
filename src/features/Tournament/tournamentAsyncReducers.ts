@@ -34,21 +34,24 @@ export const createNewTournamentAsync = createAsyncThunk<
 
 export const getTournamentByIdAsync = createAsyncThunk<
   Tournament,
-  number,
+  { tournamentId: number; userEmail?: string },
   { extra: ThunkExraArguments; rejectValue: string }
->("@@tournament/getOne", async (id, { extra: { api }, rejectWithValue }) => {
-  try {
-    const { data } = await api.makeGetRequest<Tournament>(
-      `tournaments/getById/${id}`
-    );
-    return data;
-  } catch (err) {
-    if (err instanceof Error) {
-      return rejectWithValue(err.message);
+>(
+  "@@tournament/getOne",
+  async ({ tournamentId, userEmail }, { extra: { api }, rejectWithValue }) => {
+    try {
+      const { data } = await api.makeGetRequest<Tournament>(
+        `tournaments/getById/${tournamentId}${userEmail ? "/" + userEmail : ""}`
+      );
+      return data;
+    } catch (err) {
+      if (err instanceof Error) {
+        return rejectWithValue(err.message);
+      }
+      return rejectWithValue("Something bad was happened!");
     }
-    return rejectWithValue("Something bad was happened!");
   }
-});
+);
 
 type UpdateTournamentParams = UpdateField & { tournamentId: number };
 export const updateTournamentAsync = createAsyncThunk<
@@ -126,17 +129,20 @@ export const getTournamentsListAsync = createAsyncThunk<
 
 export const registerNewCompetitorsAsync = createAsyncThunk<
   Tournament,
-  { maxNumberRound: number; tournamentId: number },
+  { maxNumberRound: number; tournamentId: number; tournamentPassword: string },
   { extra: ThunkExraArguments; rejectValue: string }
 >(
   "@@tournament/registerNewCompetitor",
   async (params, { extra: { api }, rejectWithValue }) => {
     try {
-      const { maxNumberRound, tournamentId } = params;
+      const { maxNumberRound, tournamentId, tournamentPassword } = params;
       const { data } = await api.makePostRequest<
-        { maxNumberRound: number },
+        { maxNumberRound: number; tournamentPassword: string },
         Tournament
-      >(`tournaments/addCompetitor/${tournamentId}`, { maxNumberRound });
+      >(`tournaments/addCompetitor/${tournamentId}`, {
+        maxNumberRound,
+        tournamentPassword,
+      });
       return data;
     } catch (err) {
       if (err instanceof Error) {
@@ -190,6 +196,28 @@ export const deleteTournamentAsync = createAsyncThunk<
         `tournaments/delete/${tournamentId}`,
         undefined
       );
+      return data;
+    } catch (err) {
+      if (err instanceof Error) {
+        return rejectWithValue(err.message);
+      }
+      return rejectWithValue("Something bad was happened!");
+    }
+  }
+);
+
+export const deletePlayerAsync = createAsyncThunk<
+  Tournament,
+  { tournamentId: number; userEmail: string; competitorId: number },
+  { extra: ThunkExraArguments; rejectValue: string }
+>(
+  "@@tournament/deletePlayer",
+  async (params, { extra: { api }, rejectWithValue }) => {
+    try {
+      const { data } = await api.makePostRequest<
+        { tournamentId: number; userEmail: string; competitorId: number },
+        Tournament
+      >(`tournaments/deletePlayer/${params.tournamentId}`, { ...params });
       return data;
     } catch (err) {
       if (err instanceof Error) {

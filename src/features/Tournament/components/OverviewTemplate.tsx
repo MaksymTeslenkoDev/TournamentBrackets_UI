@@ -1,34 +1,20 @@
 import { Box, Typography } from "@material-ui/core";
 import React from "react";
-import { Tournament, TournamentAccessType } from "../types";
+import { Tournament } from "../types";
 import { ButtonBase } from "@material-ui/core";
-import { useTournamentSettingsTextField } from "./TournamentSettingsTextField/TournamentSettingTextField";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUsers } from "@fortawesome/free-solid-svg-icons";
-import { FormProvider, UseFormReturn } from "react-hook-form";
-import { SimpleButton } from "../../../Components/UiElements/Buttons/TBButton";
 import { useOverviewTemplateStyles } from "./styles/useOverviewTemplateStyles";
-import { getTeamsCount } from "../../../Utility/getTeamsCount";
+import { JoinTournamentSection } from "./JoinTournamentSection";
 
-interface OverviewTemplateProps
-  extends UseFormReturn<{ invitationLink: string }> {
+interface OverviewTemplateProps {
   tournament: Tournament;
   roundsDates: Array<{ round: number; startAt: string }>;
-  showJoinSection: boolean;
-  handleJoin: () => void;
-  competitorsLength: number;
 }
 
 export const OverviewTemplate: React.FC<OverviewTemplateProps> = ({
   tournament,
   roundsDates,
-  showJoinSection,
-  handleJoin,
-  competitorsLength,
-  ...methods
 }: OverviewTemplateProps) => {
   const classes = useOverviewTemplateStyles();
-  const { TBTournamentSettingsTextField } = useTournamentSettingsTextField();
   return (
     <Box className={classes.root}>
       <Box className={classes.section}>
@@ -85,50 +71,7 @@ export const OverviewTemplate: React.FC<OverviewTemplateProps> = ({
           })}
         </Box>
       </Box>
-      {showJoinSection && (
-        <Box className={classes.section}>
-          <Box className={classes.sectionBlockContent}>
-            <Typography className={classes.sectionBlockTitle}>
-              Join Tournament
-            </Typography>
-            <Box className={classes.playersCountRow}>
-              <FontAwesomeIcon icon={faUsers} />
-              <Typography component="span">{`${competitorsLength}/${getTeamsCount(
-                tournament.size
-              )}`}</Typography>
-              <Typography component="span">Players</Typography>
-            </Box>
-            <FormProvider {...methods}>
-              <form onSubmit={handleJoin}>
-                {tournament.accessType === TournamentAccessType.private && (
-                  <TBTournamentSettingsTextField
-                    name="size"
-                    size="small"
-                    label=""
-                    className="TournamentsettingsTextField"
-                    color="primary"
-                    inputProps={{
-                      placeholder: "Enter your invite link",
-                    }}
-                  />
-                )}
-
-                <Box>
-                  <SimpleButton
-                    size="small"
-                    variant="contained"
-                    color="primary"
-                    type="submit"
-                    className={classes.joinButton}
-                  >
-                    Join
-                  </SimpleButton>
-                </Box>
-              </form>
-            </FormProvider>
-          </Box>
-        </Box>
-      )}
+      <JoinTournamentSection />
     </Box>
   );
 };

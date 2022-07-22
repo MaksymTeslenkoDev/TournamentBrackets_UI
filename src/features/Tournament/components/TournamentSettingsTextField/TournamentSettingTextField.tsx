@@ -9,6 +9,7 @@ import {
   TBSelectProps,
 } from "../../../../Components/UiElements/Select/TBSelect";
 import { TBTextField } from "../../../../Components/TextField/PlaneFormInput";
+import TBFormPasswordField from "../../../../Components/TextField/TBPasswordField";
 
 export const useTournamentSettingsTextField = () => {
   const [theme] = useTheme();
@@ -33,6 +34,39 @@ export const useTournamentSettingsTextField = () => {
     },
     "&.size-big": {
       fontSize: theme.spacing(1.5),
+    },
+    "& .Mui-disabled": {
+      color: theme.palette.secondary.light,
+    },
+  }));
+
+  const TBTournamentSettingsPasswordField = styled(
+    (props: UseControllerProps & TBTextFieldI & InputProps) => (
+      <TBFormPasswordField {...props} />
+    )
+  )(() => ({
+    backgroundColor: theme.palette.primary.dark,
+    color: theme.palette.common.white,
+    width: "100%",
+    fontWeight: 300,
+    "& input::-webkit-calendar-picker-indicator": {
+      position: "absolute",
+      left: 0,
+      top: 0,
+      width: "100%",
+      height: "100%",
+      cursor: "pointer",
+      content: '" "',
+      opacity: 0,
+    },
+    "&.size-big": {
+      fontSize: theme.spacing(1.5),
+    },
+    "&.TournamentDetailsPassword": {
+      "& input": {
+        padding: theme.spacing(0.5),
+        color: theme.palette.common.white,
+      },
     },
     "& .Mui-disabled": {
       color: theme.palette.secondary.light,
@@ -86,5 +120,6 @@ export const useTournamentSettingsTextField = () => {
     TBTournamentsListTextField,
     TBSelectQueryParamListTournaments,
     TBTextFieldScore,
+    TBTournamentSettingsPasswordField,
   };
 };

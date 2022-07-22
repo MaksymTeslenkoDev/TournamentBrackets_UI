@@ -66,4 +66,16 @@ export const useTBTextFieldStyles = makeStyles((theme: Theme) => ({
       objectFit: "contain",
     },
   },
+  previewPassword: {
+    position: "absolute",
+    width: `${theme.spacing(1.5)} !important`,
+    height: theme.spacing(1.5),
+    top: theme.spacing(0.25),
+    right: theme.spacing(0.25),
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    cursor: "pointer",
+  },
 }));
