@@ -3,18 +3,18 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Box, Typography } from "@material-ui/core";
 import React from "react";
 import { FormProvider, useForm } from "react-hook-form";
-import { TBFormTextField } from "../../../Components/TextField";
-import { useAppSelector } from "../../../hooks";
-import { selectListQueryParams } from "../tournamentSelectors";
+import { TBFormTextField } from "../../../../Components/TextField";
+import { useAppSelector } from "../../../../hooks";
+import { selectListQueryParams } from "../../state/tournamentSelectors";
 import {
   accessTypesOptinsArray,
   OrderDirection,
   sortingDirections,
   sortingFields,
   TournamentAccessType,
-} from "../types";
+} from "../../state/types";
 import { useDashboardHeaderStyles } from "./styles/useDashboardHeaderStyles";
-import { useTournamentSettingsTextField } from "./TournamentSettingsTextField/TournamentSettingTextField";
+import { useTournamentSettingsTextField } from "../tournamentInfoPage/settingsTab/TournamentSettingsTextField/TournamentSettingTextField";
 
 interface DashboardHeaderProps {
   count: number;

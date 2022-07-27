@@ -1,6 +1,6 @@
 import { Box } from "@material-ui/core";
 import React from "react";
-import { TabPanel } from "../../../Components/UiElements/Tab/TabPanel";
+import { TabPanel } from "../../../../../Components/UiElements/Tab/TabPanel";
 import { InfoBlockSidebarMenu } from "./InfoBlockSidebarMenu";
 import { SettingsChampConfig } from "./SettingsChampConfig";
 import { useSettingsContainerStyles } from "./styles/useSettingsContainerStyles";

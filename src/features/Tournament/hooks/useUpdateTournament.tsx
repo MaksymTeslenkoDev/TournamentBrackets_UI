@@ -1,11 +1,11 @@
 import { UseFormReturn } from "react-hook-form";
 import { useAppDispatch, useAppSelector } from "../../../hooks";
-import { selectTournament } from "../tournamentSelectors";
+import { selectTournament } from "../state/tournamentSelectors";
 import {
   updateRoundMatchesAsync,
   updateTournamentAsync,
-} from "../tournamentAsyncReducers";
-import { SettingChampFields } from "../components/SettingsChampConfig";
+} from "../state/tournamentAsyncReducers";
+import { SettingChampFields } from "../components/tournamentInfoPage/settingsTab/SettingsChampConfig";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 

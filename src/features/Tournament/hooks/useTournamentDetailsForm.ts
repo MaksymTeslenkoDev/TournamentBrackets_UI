@@ -1,8 +1,8 @@
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
-import { Tournament } from "../types";
+import { Tournament } from "../state/types";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { SettingChampFields } from "../components/SettingsChampConfig";
+import { SettingChampFields } from "../components/tournamentInfoPage/settingsTab/SettingsChampConfig";
 import { useUpdateTournament } from "./useUpdateTournament";
 
 export const useTournamentDetailsForm = (tournament: Tournament) => {

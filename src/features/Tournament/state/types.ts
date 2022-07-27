@@ -1,6 +1,6 @@
-import { SelectOption } from "../../Components/UiElements/Select/TBSelect";
-import { LoadErrorStatus } from "../../types";
-import { AppUser } from "../User/types";
+import { SelectOption } from "../../../Components/UiElements/Select/TBSelect";
+import { LoadErrorStatus } from "../../../types";
+import { AppUser } from "../../User/types";
 
 type TournamentFormatOptions = SelectOption & { description: string };
 

@@ -4,9 +4,9 @@ import "react-toastify/dist/ReactToastify.css";
 import {
   deletePlayerAsync,
   registerNewCompetitorsAsync,
-} from "../tournamentAsyncReducers";
+} from "../state/tournamentAsyncReducers";
 import { useAppDispatch, useAppSelector } from "../../../hooks";
-import { selectPlayers, selectTournament } from "../tournamentSelectors";
+import { selectPlayers, selectTournament } from "../state/tournamentSelectors";
 import { selectUser } from "../../User/userSlice";
 import {
   getUserTournamentsAsync,

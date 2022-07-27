@@ -8,7 +8,7 @@ import {
   gamesArray,
   TournamentBase,
   tournamentFormatsArray,
-} from "../../Tournament/types";
+} from "../../Tournament/state/types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { selectUser } from "../../User/userSlice";

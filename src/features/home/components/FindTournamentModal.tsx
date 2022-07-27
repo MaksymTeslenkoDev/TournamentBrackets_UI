@@ -8,7 +8,7 @@ import {
   gamesArray,
   Tournament,
   TournamentAccessType,
-} from "../../Tournament/types";
+} from "../../Tournament/state/types";
 import { TournamentModalTitle } from "./ModalTitle";
 import { useCreateTournamentBaseModalStyles } from "./styles/useCreateTournamentBaseStyles";
 import { faKey } from "@fortawesome/free-solid-svg-icons";

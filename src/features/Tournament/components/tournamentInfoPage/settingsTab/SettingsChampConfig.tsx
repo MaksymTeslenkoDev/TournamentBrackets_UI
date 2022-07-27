@@ -1,15 +1,18 @@
 import { Box, Typography } from "@material-ui/core";
 import React from "react";
-import { TabTitleComponent } from "./TabTitleComponent";
+import { TabTitleComponent } from "../../tournamentInfoPage/TabTitleComponent";
 import { FormProvider, useForm } from "react-hook-form";
-import { useAppSelector } from "../../../hooks";
-import { selectRoundsDates, selectTournament } from "../tournamentSelectors";
+import { useAppSelector } from "../../../../../hooks";
+import {
+  selectRoundsDates,
+  selectTournament,
+} from "../../../state/tournamentSelectors";
 import { useTournamentSettingsTextField } from "./TournamentSettingsTextField/TournamentSettingTextField";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendar } from "@fortawesome/free-solid-svg-icons";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useUpdateTournament } from "../hooks/useUpdateTournament";
+import { useUpdateTournament } from "../../../hooks/useUpdateTournament";
 import { useSettingsChampConfigStyles } from "./styles/useSettingsChampConfigStyles";
 
 export interface SettingChampFields {

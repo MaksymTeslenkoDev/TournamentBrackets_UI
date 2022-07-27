@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { ThunkExraArguments } from "../../store";
+import { ThunkExraArguments } from "../../../store";
 
 import {
   Match,

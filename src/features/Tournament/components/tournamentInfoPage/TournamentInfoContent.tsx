@@ -1,7 +1,7 @@
 import { Box, Typography } from "@material-ui/core";
 import React from "react";
-import { useAppSelector } from "../../../hooks";
-import { selectOwner, selectTournament } from "../tournamentSelectors";
+import { useAppSelector } from "../../../../hooks";
+import { selectOwner, selectTournament } from "../../state/tournamentSelectors";
 import { InfoBlock } from "./InfoBlock";
 import { useTournamentInfoContentStyles } from "./styles/useTournamentInfoContentStyles";
 

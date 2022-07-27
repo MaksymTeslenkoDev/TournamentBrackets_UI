@@ -1,14 +1,14 @@
 import { Box } from "@material-ui/core";
 import React from "react";
-import { TabsSwitcher } from "../../../Components/UiElements/Tab/Tab";
-import { TabPanel } from "../../../Components/UiElements/Tab/TabPanel";
-import { useAppSelector } from "../../../hooks";
-import { selectUser } from "../../User/userSlice";
-import { selectOwner } from "../tournamentSelectors";
-import { OverviewContainer } from "./OverviewContainer";
-import { SettingsContainer } from "./SettingsContainer";
+import { TabsSwitcher } from "../../../../Components/UiElements/Tab/Tab";
+import { TabPanel } from "../../../../Components/UiElements/Tab/TabPanel";
+import { useAppSelector } from "../../../../hooks";
+import { selectUser } from "../../../User/userSlice";
+import { selectOwner } from "../../state/tournamentSelectors";
+import { OverviewContainer } from "./overviewTab/OverviewContainer";
+import { SettingsContainer } from "./settingsTab/SettingsContainer";
 import { useInfoBlockStyles } from "./styles/useInfoBlockStyles";
-import { BracketContainer } from "./TournamentBracketContainer";
+import { BracketContainer } from "./bracketTab/TournamentBracketContainer";
 
 export const InfoBlock: React.FC = () => {
   const classes = useInfoBlockStyles();

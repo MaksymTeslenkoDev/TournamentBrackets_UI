@@ -1,14 +1,14 @@
 import { Box } from "@material-ui/core";
 import React from "react";
 import { useParams } from "react-router-dom";
-import { useAppDispatch, useAppSelector } from "../../../hooks";
-import { useQueryTournamentsList } from "../hooks/useFindTournamentsList";
-import { selectTournamentsList } from "../tournamentSelectors";
-import { setQueryField } from "../tournamentSlice";
+import { useAppDispatch, useAppSelector } from "../../../../hooks";
+import { useQueryTournamentsList } from "../../hooks/useFindTournamentsList";
+import { selectTournamentsList } from "../../state/tournamentSelectors";
+import { setQueryField } from "../../state/tournamentSlice";
 import { useTournamentsDashboardInnerStyles } from "./styles/useTournamentDashboardStyles";
 import { DashboardHeader } from "./TournamentsDashboardHeader";
 import { TournamentsListTemplate } from "./TournamentsListTemplate";
-import { WithSidebarHOC } from "./WithSidebarHOC";
+import { WithSidebarHOC } from "../WithSidebarHOC";
 
 interface URLDashboardParams {
   game: string;

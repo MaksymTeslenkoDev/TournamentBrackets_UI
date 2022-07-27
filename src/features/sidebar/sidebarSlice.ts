@@ -3,9 +3,9 @@ import { SelectOption } from "../../Components/UiElements/Select/TBSelect";
 import {
   createNewTournamentAsync,
   registerNewCompetitorsAsync,
-} from "../Tournament/tournamentAsyncReducers";
+} from "../Tournament/state/tournamentAsyncReducers";
 import { RootState, ThunkExraArguments } from "../../store";
-import { gamesArray } from "../Tournament/types";
+import { gamesArray } from "../Tournament/state/types";
 
 type TournamentsOption = SelectOption & { role: string };
 export enum UserRoles {

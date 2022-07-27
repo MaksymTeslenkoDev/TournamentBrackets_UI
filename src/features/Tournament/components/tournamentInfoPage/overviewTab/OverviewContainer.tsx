@@ -1,14 +1,10 @@
 import React from "react";
-import { useForm } from "react-hook-form";
-import { useAppSelector } from "../../../hooks";
-import { selectUser } from "../../User/userSlice";
-import { useAddNewCompetitor } from "../hooks/useAddNewCompetitor";
+import { useAppSelector } from "../../../../../hooks";
 import {
   selectOwner,
-  selectPlayers,
   selectRoundsDates,
   selectTournament,
-} from "../tournamentSelectors";
+} from "../../../state/tournamentSelectors";
 import { OverviewTemplate } from "./OverviewTemplate";
 
 export const OverviewContainer: React.FC = () => {

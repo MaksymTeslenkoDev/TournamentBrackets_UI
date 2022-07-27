@@ -1,5 +1,5 @@
 import React from "react";
-import TournamentInfoContainer from "../features/Tournament/components/TournamentInfoContainer";
+import TournamentInfoContainer from "../features/Tournament/components/tournamentInfoPage/TournamentInfoContainer";
 import { Layout } from "../Layout/Layout";
 import { useLayoutStyles } from "./useLayoutStyles";
 

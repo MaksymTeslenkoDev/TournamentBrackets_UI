@@ -2,14 +2,17 @@ import { faUsers } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Box, Typography } from "@material-ui/core";
 import { FormProvider } from "react-hook-form";
-import { SimpleButton } from "../../../Components/UiElements/Buttons/TBButton";
-import { useAppSelector } from "../../../hooks";
-import { getTeamsCount } from "../../../Utility/getTeamsCount";
-import { useAddNewCompetitor } from "../hooks/useAddNewCompetitor";
-import { selectPlayers, selectTournament } from "../tournamentSelectors";
-import { TournamentAccessType } from "../types";
+import { SimpleButton } from "../../../../../Components/UiElements/Buttons/TBButton";
+import { useAppSelector } from "../../../../../hooks";
+import { getTeamsCount } from "../../../../../Utility/getTeamsCount";
+import { useAddNewCompetitor } from "../../../hooks/useAddNewCompetitor";
+import {
+  selectPlayers,
+  selectTournament,
+} from "../../../state/tournamentSelectors";
+import { TournamentAccessType } from "../../../state/types";
 import { useOverviewTemplateStyles } from "./styles/useOverviewTemplateStyles";
-import { useTournamentSettingsTextField } from "./TournamentSettingsTextField/TournamentSettingTextField";
+import { useTournamentSettingsTextField } from "../settingsTab/TournamentSettingsTextField/TournamentSettingTextField";
 
 export const JoinTournamentSection = () => {
   const classes = useOverviewTemplateStyles();

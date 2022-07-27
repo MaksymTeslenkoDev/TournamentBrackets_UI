@@ -7,19 +7,19 @@ import {
 } from "@material-ui/core";
 import React from "react";
 import { Controller, FormProvider } from "react-hook-form";
-import { useAppSelector } from "../../../hooks";
-import { selectTournament } from "../tournamentSelectors";
-import { TabTitleComponent } from "./TabTitleComponent";
+import { useAppSelector } from "../../../../../hooks";
+import { selectTournament } from "../../../state/tournamentSelectors";
+import { TabTitleComponent } from "../../tournamentInfoPage/TabTitleComponent";
 import { useSettingsChampConfigStyles } from "./styles/useSettingsChampConfigStyles";
 import { useTournamentSettingsTextField } from "./TournamentSettingsTextField/TournamentSettingTextField";
-import { TournamentAccessType } from "../types";
-import { useTBRadioButton } from "../../../Components/UiElements/Buttons/TBRadioButton";
+import { TournamentAccessType } from "../../../state/types";
+import { useTBRadioButton } from "../../../../../Components/UiElements/Buttons/TBRadioButton";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCopy } from "@fortawesome/free-solid-svg-icons";
 import { useTournamentDetailsStyles } from "./styles/useTournamentDetailsStyles";
-import { useTournamentDetailsForm } from "../hooks/useTournamentDetailsForm";
-import { handleCopy } from "../../../Utility/handleClipboardCopy";
-import { SimpleButton } from "../../../Components/UiElements/Buttons/TBButton";
+import { useTournamentDetailsForm } from "../../../hooks/useTournamentDetailsForm";
+import { handleCopy } from "../../../../../Utility/handleClipboardCopy";
+import { SimpleButton } from "../../../../../Components/UiElements/Buttons/TBButton";
 export const TournamentDetailsContainer: React.FC = () => {
   const tournament = useAppSelector((state) => selectTournament(state));
   const classes = useTournamentDetailsStyles();

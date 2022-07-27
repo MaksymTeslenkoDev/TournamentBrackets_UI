@@ -1,5 +1,5 @@
 import { useAppDispatch } from "../../hooks";
-import { deleteTournamentAsync } from "../Tournament/tournamentAsyncReducers";
+import { deleteTournamentAsync } from "../Tournament/state/tournamentAsyncReducers";
 import { setActive } from "./sidebarSlice";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";

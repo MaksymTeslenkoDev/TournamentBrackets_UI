@@ -1,15 +1,15 @@
-import { useTheme } from "../../../../hooks/useTheme";
+import { useTheme } from "../../../../../../hooks/useTheme";
 import { FieldValues, UseControllerProps } from "react-hook-form";
 import { InputProps, SelectProps } from "@material-ui/core";
-import { TBFormTextField } from "../../../../Components/TextField";
-import { TBTextFieldI } from "../../../../Components/TextField/PlaneFormInput";
+import { TBFormTextField } from "../../../../../../Components/TextField";
+import { TBTextFieldI } from "../../../../../../Components/TextField/PlaneFormInput";
 import { styled } from "@mui/material/styles";
 import {
   TBFormSelect,
   TBSelectProps,
-} from "../../../../Components/UiElements/Select/TBSelect";
-import { TBTextField } from "../../../../Components/TextField/PlaneFormInput";
-import TBFormPasswordField from "../../../../Components/TextField/TBPasswordField";
+} from "../../../../../../Components/UiElements/Select/TBSelect";
+import { TBTextField } from "../../../../../../Components/TextField/PlaneFormInput";
+import TBFormPasswordField from "../../../../../../Components/TextField/TBPasswordField";
 
 export const useTournamentSettingsTextField = () => {
   const [theme] = useTheme();

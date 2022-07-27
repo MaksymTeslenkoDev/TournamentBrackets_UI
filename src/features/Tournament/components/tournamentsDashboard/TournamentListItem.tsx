@@ -6,11 +6,11 @@ import clsx from "clsx";
 import {
   accessTypesOptinsArray,
   TournamentListItem as TournamentItem,
-} from "../types";
-import { getTeamsCount } from "../../../Utility/getTeamsCount";
+} from "../../state/types";
+import { getTeamsCount } from "../../../../Utility/getTeamsCount";
 import { useTournamentListItemStyles } from "./styles/useTournamentListItemStyles";
-import { useAppSelector } from "../../../hooks";
-import { selectPlayers } from "../tournamentSelectors";
+import { useAppSelector } from "../../../../hooks";
+import { selectPlayers } from "../../state/tournamentSelectors";
 
 interface TournamentListItemProps {
   item: TournamentItem;
@@ -63,7 +63,7 @@ export const TournamentListItem: React.FC<TournamentListItemProps> = ({
         </Typography>
       </Box>
       <Box className={classes.gameIconWrapper}>
-        <img src={`../../../images/gamesIcons/${item.game}.png`} />
+        <img src={`../../../../images/gamesIcons/${item.game}.png`} />
       </Box>
     </Paper>
   );

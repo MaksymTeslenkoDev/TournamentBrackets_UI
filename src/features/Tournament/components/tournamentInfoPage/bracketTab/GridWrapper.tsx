@@ -1,7 +1,7 @@
 import { Box, Typography } from "@material-ui/core";
 import React from "react";
-import { TBTextField } from "../../../Components/TextField/PlaneFormInput";
-import { Competitor, Rounds } from "../types";
+import { TBTextField } from "../../../../../Components/TextField/PlaneFormInput";
+import { Competitor, Rounds } from "../../../state/types";
 import { useGridWrapperStyles } from "./styles/useGridWrapperStyles";
 
 interface GridWrapperProps {

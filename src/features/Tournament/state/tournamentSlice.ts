@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { LoadStatus } from "../../types";
-import { loginAsync } from "../login/loginSlice";
-import { checkIsAuthAsync } from "../User/userSlice";
+import { LoadStatus } from "../../../types";
+import { loginAsync } from "../../login/loginSlice";
+import { checkIsAuthAsync } from "../../User/userSlice";
 import {
   createNewTournamentAsync,
   deletePlayerAsync,

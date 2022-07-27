@@ -1,6 +1,6 @@
 import { Box, Typography } from "@material-ui/core";
 import React from "react";
-import { FormProvider, useForm } from "react-hook-form";
+import { FormProvider } from "react-hook-form";
 import { SimpleButton } from "../../../Components/UiElements/Buttons/TBButton";
 import { useAddTournamentInitialModalClasses } from "./styles/useAddTournamentInitialModalStyles";
 

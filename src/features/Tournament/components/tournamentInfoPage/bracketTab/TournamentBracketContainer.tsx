@@ -1,15 +1,14 @@
 import { Box } from "@material-ui/core";
 import React from "react";
-import { useAppSelector } from "../../../hooks";
-import { selectUser } from "../../User/userSlice";
-import { useUpdateScore } from "../hooks/useUpdateScore";
+import { useAppSelector } from "../../../../../hooks";
+import { selectUser } from "../../../../User/userSlice";
+import { useUpdateScore } from "../../../hooks/useUpdateScore";
 import {
   selectMatches,
   selectOwner,
   selectRoundsDates,
   selectTournament,
-} from "../tournamentSelectors";
-import { Competitor } from "../types";
+} from "../../../state/tournamentSelectors";
 import { GridWrapper } from "./GridWrapper";
 import { useBracketContainerStyles } from "./styles/useBracketContainerStyles";
 

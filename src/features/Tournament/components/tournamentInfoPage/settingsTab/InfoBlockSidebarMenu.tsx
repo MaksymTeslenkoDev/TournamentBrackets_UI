@@ -1,5 +1,5 @@
 import React from "react";
-import { useTournamentSidebar } from "../../../Components/UiElements/Tab/VerticalTab";
+import { useTournamentSidebar } from "../../../../../Components/UiElements/Tab/VerticalTab";
 interface Props {
   tabs: Array<string>;
   tabValue: number;

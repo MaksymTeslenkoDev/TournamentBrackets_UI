@@ -5,7 +5,7 @@ import modalReducer from "./features/Modal/modalSlice";
 import { signUpReducer } from "./features/Signup/signUpSlice";
 import { loginReducer } from "./features/login/loginSlice";
 import { userReducer } from "./features/User/userSlice";
-import { tournamentReducer } from "./features/Tournament/tournamentSlice";
+import { tournamentReducer } from "./features/Tournament/state/tournamentSlice";
 import { sidebarReducer } from "./features/sidebar/sidebarSlice";
 
 const extraArgument = {

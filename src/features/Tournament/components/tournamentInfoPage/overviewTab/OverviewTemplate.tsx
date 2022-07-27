@@ -1,6 +1,6 @@
 import { Box, Typography } from "@material-ui/core";
 import React from "react";
-import { Tournament } from "../types";
+import { Tournament } from "../../../state/types";
 import { ButtonBase } from "@material-ui/core";
 import { useOverviewTemplateStyles } from "./styles/useOverviewTemplateStyles";
 import { JoinTournamentSection } from "./JoinTournamentSection";

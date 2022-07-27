@@ -1,10 +1,10 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { useAppDispatch } from "../../../hooks";
-import { selectUser } from "../../User/userSlice";
-import { getTournamentByIdAsync } from "../tournamentAsyncReducers";
+import { useAppDispatch } from "../../../../hooks";
+import { selectUser } from "../../../User/userSlice";
+import { getTournamentByIdAsync } from "../../state/tournamentAsyncReducers";
 import { TournamentInfoContent } from "./TournamentInfoContent";
-import { WithSidebarHOC } from "./WithSidebarHOC";
+import { WithSidebarHOC } from "./../WithSidebarHOC";
 
 interface TournamentInfoContainerProps {
   tournamentId: string;

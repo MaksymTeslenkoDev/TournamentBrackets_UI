@@ -1,5 +1,5 @@
-import { RootState } from "../../store";
-import { UserRoles } from "../sidebar/sidebarSlice";
+import { RootState } from "../../../store";
+import { UserRoles } from "../../sidebar/sidebarSlice";
 import { Rounds, Tournament, TournamentListItem } from "./types";
 
 export const selectTournament = (state: RootState) =>

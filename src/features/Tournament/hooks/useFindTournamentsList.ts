@@ -3,13 +3,13 @@ import { AppDispatch } from "../../../store";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { setOpenModal } from "../../Modal/modalSlice";
-import { getTournamentsListAsync } from "../tournamentAsyncReducers";
+import { getTournamentsListAsync } from "../state/tournamentAsyncReducers";
 import { TournamentsList } from "../../home/components/FindTournamentModal";
 import { useHistory } from "react-router-dom";
 import { selectSidebar, setActive } from "../../sidebar/sidebarSlice";
-import { setQueryField } from "../tournamentSlice";
+import { setQueryField } from "../state/tournamentSlice";
 import { useAppSelector } from "../../../hooks";
-import { selectListQueryParams } from "../tournamentSelectors";
+import { selectListQueryParams } from "../state/tournamentSelectors";
 import React from "react";
 
 export const useQueryTournamentsList = () => {

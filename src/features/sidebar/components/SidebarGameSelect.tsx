@@ -7,7 +7,7 @@ import { useBracketSettingsSidebarStyles } from "./styles/useBracketSettingsSide
 import { useAppSelector } from "../../../hooks";
 import { selectSidebar } from "../sidebarSlice";
 import { getSelectOptionProp } from "../../../Utility/getSelectOptionProp";
-import { gamesArray } from "../../Tournament/types";
+import { gamesArray } from "../../Tournament/state/types";
 import { useSidebarStore } from "../useSidebarStore";
 import { useHistory, useLocation } from "react-router-dom";
 

@@ -2,8 +2,8 @@ import { useDispatch } from "react-redux";
 import { AppDispatch } from "../../../store";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { updateScoreAsync } from "../tournamentAsyncReducers";
-import { Competitor } from "../types";
+import { updateScoreAsync } from "../state/tournamentAsyncReducers";
+import { Competitor } from "../state/types";
 
 export const useUpdateScore = () => {
   const dispatch = useDispatch<AppDispatch>();

@@ -1,7 +1,7 @@
 import { Box } from "@material-ui/core";
 import React from "react";
 import { useHistory } from "react-router-dom";
-import { TournamentListItem } from "../types";
+import { TournamentListItem } from "../../state/types";
 import { useTournamentsListTemplateStyles } from "./styles/useTournamentsListTemplateStyles";
 import { TournamentListItem as ListItem } from "./TournamentListItem";
 

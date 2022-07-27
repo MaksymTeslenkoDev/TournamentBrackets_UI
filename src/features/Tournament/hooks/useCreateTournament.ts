@@ -4,8 +4,8 @@ import { AppDispatch } from "../../../store";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { setOpenModal } from "../../Modal/modalSlice";
-import { createNewTournamentAsync } from "../tournamentAsyncReducers";
-import { TournamentBase } from "../types";
+import { createNewTournamentAsync } from "../state/tournamentAsyncReducers";
+import { TournamentBase } from "../state/types";
 
 export const useCreateTournament = (methods: UseFormReturn<TournamentBase>) => {
   const dispatch = useDispatch<AppDispatch>();
